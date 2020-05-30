@@ -7,9 +7,30 @@
 
   & .hello-to-chat-message {
     width: 50%;
+    height: 30%;
     align-self: center;
-    border: 1px solid yellow;
-    flex: 1;
+    border-radius: 5px;
+    background-color: rgba(86,171,224,.05);
+    margin-bottom: 10%;
+    padding: 0.5em 2em;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: white;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #d5d5d5;
+    }
+
+    &:empty:before {
+      content: 'Messages will appear here';
+      color:gray
+    }
   }
 
   & .send-message-container {

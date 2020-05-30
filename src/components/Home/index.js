@@ -6,18 +6,6 @@ const Home = () => {
     const socket = openSocket('http://localhost:3020');
     const [message, setMessage] = useState('');
 
-    socket.on('chat-message', message => {
-        const element = document.createElement('div');
-        element.innerText = message;
-
-        const messageArea = document.getElementById('message-area');
-        if (!messageArea) {
-            return;
-        }
-
-        messageArea.appendChild(element);
-    });
-
     const sendMessage = (e) => {
         e.preventDefault();
         socket.emit('send-chat-message', message);
@@ -40,8 +28,7 @@ const Home = () => {
                     Send message
                 </button>
             </div>
-            <div id="message-area" className="hello-to-chat-message">
-                Hello to our chat =)
+            <div id="message-area" className="hello-to-chat-message" placeholder="Messages will appear here">
             </div>
         </div>
     );
