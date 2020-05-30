@@ -1,0 +1,21 @@
+.auth-form-container {
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 2em 2em;
+}
+
+.submit-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.btn {
+  width: 80%;
+  align-self: center;
+  background: lightblue;
+  border: none;
+  outline: none;
+}
