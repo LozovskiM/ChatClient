@@ -2,6 +2,8 @@ import chatApi from '../api/chatApi';
 import createDataContext from './createDataContext';
 import { SIGN_IN, LOG_OUT } from '../constants/actionTypes';
 
+import history from '../history';
+
 const initialState = {
     token: null,
     error: ''
@@ -25,7 +27,8 @@ const signin = (dispatch) => {
             console.log(123, response.data.data);
             localStorage.setItem('token', response.data.data.token);
 
-            dispatch({ type: SIGN_IN, payload: response.data.data })
+            dispatch({ type: SIGN_IN, payload: response.data.data });
+            history.push('/home');
         } catch (error) {
             alert(error);
         }
@@ -36,9 +39,10 @@ const signup = (dispatch) => {
     return async ({ username, password }) => {
         try {
             const response = await chatApi.post('/signup', { username, password });
-            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('token', response.data.data.token);
 
-            dispatch({ type: SIGN_IN, payload: response.data })
+            dispatch({ type: SIGN_IN, payload: response.data.data });
+            history.push('/home');
         } catch (error) {
             alert(error);
         }
